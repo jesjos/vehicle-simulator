@@ -4,4 +4,8 @@
 package fi.crosskey.card.vehicle.simulator.models;
 
 public class VehicleStateException extends Exception {
+
+    public VehicleStateException(){
+        super();
+    }
 }
