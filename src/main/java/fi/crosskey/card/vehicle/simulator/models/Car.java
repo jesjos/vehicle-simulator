@@ -46,7 +46,11 @@ public class Car {
         return state;
     }
 
-    public void setState(final CarState state) {
-        this.state = state;
+    public void setState(final CarState state) throws VehicleStateException {
+
+        if (state == this.state) {
+            throw new VehicleStateException();
+
+        }else{ this.state = state; }
     }
 }
