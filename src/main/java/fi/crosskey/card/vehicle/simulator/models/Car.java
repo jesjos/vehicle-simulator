@@ -26,6 +26,10 @@ public class Car {
         this.state = state;
     }
 
+    public Car(final String name) {
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }
