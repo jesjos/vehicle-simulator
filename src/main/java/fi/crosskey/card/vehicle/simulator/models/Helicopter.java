@@ -11,18 +11,25 @@ public class Helicopter {
     private long id;
     private String name;
     @Enumerated(EnumType.STRING)
-    private HelicopterState currentState = LANDED;
-    private boolean landed = true;
+    private HelicopterState currentState;
+    private boolean landed;
 
-    public Helicopter(){}
+    public Helicopter(){
+        stateChange(LANDED);
+    }
 
     public Helicopter(final String name, final HelicopterState state){
         this.name = name;
-        initializeState(state);
+        stateChange(state);
+    }
+
+    public Helicopter(final String name){
+        this.name = name;
+        stateChange(LANDED);
     }
 
     public Helicopter(final HelicopterState state){
-        initializeState(state);
+        stateChange(state);
     }
 
     private void initializeState(HelicopterState state){
@@ -33,8 +40,8 @@ public class Helicopter {
 
     }
 
-    public void setState(final HelicopterState state) throws VehicleStateException {
-        stateValidator(state);
+    public void setCurrentState(final HelicopterState currentState) throws VehicleStateException {
+        stateValidator(currentState);
 
     }
 
@@ -59,6 +66,19 @@ public class Helicopter {
             this.landed = false;
             this.currentState = state;
         }
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public HelicopterState getCurrentState() {

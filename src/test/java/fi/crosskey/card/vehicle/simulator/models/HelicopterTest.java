@@ -16,43 +16,43 @@ public class HelicopterTest {
     @Test(expected = VehicleStateException.class)
     public void landedVehicleCannotBeLanded() throws VehicleStateException {
         vehicle = new Helicopter();
-        vehicle.setState(HelicopterState.LANDED);
+        vehicle.setCurrentState(HelicopterState.LANDED);
     }
 
     @Test(expected = VehicleStateException.class)
     public void hovereringVehicleCannotHover() throws VehicleStateException {
         vehicle = new Helicopter();
-        vehicle.setState(HelicopterState.HOVERING);
-        vehicle.setState(HelicopterState.HOVERING);
+        vehicle.setCurrentState(HelicopterState.HOVERING);
+        vehicle.setCurrentState(HelicopterState.HOVERING);
     }
 
     @Test(expected = VehicleStateException.class)
     public void landedVehicleCannotHover() throws VehicleStateException {
         vehicle = new Helicopter();
-        vehicle.setState(HelicopterState.HOVERING);
+        vehicle.setCurrentState(HelicopterState.HOVERING);
     }
 
     @Test(expected = VehicleStateException.class)
     public void landedVehicleCannotGoDown() throws VehicleStateException {
         vehicle = new Helicopter();
-        vehicle.setState(HelicopterState.GOING_DOWN);
+        vehicle.setCurrentState(HelicopterState.GOING_DOWN);
     }
 
     @Test
     public void landedVehicleCanGoUp() throws VehicleStateException {
         vehicle = new Helicopter();
-        vehicle.setState(HelicopterState.GOING_UP);
+        vehicle.setCurrentState(HelicopterState.GOING_UP);
     }
 
     @Test
     public void hooveringVehicleCanLand() throws VehicleStateException {
         vehicle = new Helicopter(HelicopterState.HOVERING);
-        vehicle.setState(HelicopterState.LANDED);
+        vehicle.setCurrentState(HelicopterState.LANDED);
     }
 
     @Test
     public void goingDownVehicleCanGoUp() throws VehicleStateException {
         vehicle = new Helicopter(HelicopterState.GOING_UP);
-        vehicle.setState(HelicopterState.GOING_DOWN);
+        vehicle.setCurrentState(HelicopterState.GOING_DOWN);
     }
 }

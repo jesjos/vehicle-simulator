@@ -3,9 +3,7 @@ package fi.crosskey.card.vehicle.simulator.service;
 
 import fi.crosskey.card.vehicle.simulator.models.Helicopter;
 import fi.crosskey.card.vehicle.simulator.repositories.HelicopterRepository;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -24,16 +22,19 @@ public class HelicoptersController {
     public Iterable<Helicopter> findAll() {
         return vehiclesRepository.findAll();
     }
-/*
-    @RequestMapping(method = RequestMethod.GET)
-    public Optional<Helicopter> findOne(Long primaryKey) {
-        return vehiclesRepository.findById(primaryKey);
-    }*/
 
     @RequestMapping(method = RequestMethod.POST)
     public  <S extends Helicopter> void save(S entity) {
         vehiclesRepository.save(entity);
     }
+
+    /* URL path = localhost:8080/helicopters/findOne/1?id=value*/
+
+    @RequestMapping(value = "/findOne/{id}", method = RequestMethod.GET)
+    public Optional<Helicopter> findOne(@PathVariable Long id) {
+    return vehiclesRepository.findById(id);
+}
+
 
 
 }
