@@ -32,13 +32,6 @@ public class Helicopter {
         stateChange(state);
     }
 
-    private void initializeState(HelicopterState state){
-        if (state != this.currentState){
-            this.currentState = state;
-            this.landed = false;
-        }
-
-    }
 
     public void setCurrentState(final HelicopterState currentState) throws VehicleStateException {
         stateValidator(currentState);

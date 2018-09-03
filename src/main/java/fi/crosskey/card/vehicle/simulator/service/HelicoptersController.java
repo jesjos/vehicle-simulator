@@ -28,7 +28,7 @@ public class HelicoptersController {
         vehiclesRepository.save(entity);
     }
 
-    /* URL path = localhost:8080/helicopters/findOne/1?id=value*/
+    /* URL path = localhost:8080/helicopters/findOne/value */
 
     @RequestMapping(value = "/findOne/{id}", method = RequestMethod.GET)
     public Optional<Helicopter> findOne(@PathVariable Long id) {
