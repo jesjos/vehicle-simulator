@@ -4,6 +4,7 @@
 package fi.crosskey.card.vehicle.simulator.service;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ import fi.crosskey.card.vehicle.simulator.repositories.CarRepository;
 @RequestMapping("/cars")
 public class CarsController {
 
-
+    @Autowired
     private CarRepository vehiclesRepository;
 
     public CarsController(final CarRepository vehiclesRepository) {

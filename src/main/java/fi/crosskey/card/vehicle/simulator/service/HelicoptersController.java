@@ -3,6 +3,7 @@ package fi.crosskey.card.vehicle.simulator.service;
 
 import fi.crosskey.card.vehicle.simulator.models.Helicopter;
 import fi.crosskey.card.vehicle.simulator.repositories.HelicopterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -12,6 +13,7 @@ import java.util.Optional;
 @RequestMapping("/helicopters")
 public class HelicoptersController {
 
+    @Autowired
     private HelicopterRepository vehiclesRepository;
 
     public HelicoptersController(final HelicopterRepository vehiclesRepository) {
