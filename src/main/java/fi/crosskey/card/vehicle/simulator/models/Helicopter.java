@@ -12,7 +12,7 @@ public class Helicopter {
     private String name;
     @Enumerated(EnumType.STRING)
     private HelicopterState currentState;
-    private boolean landed;
+
 
     public Helicopter(){
         stateChange(LANDED);
@@ -46,17 +46,15 @@ public class Helicopter {
     }
 
     private void stateChangeValidator(HelicopterState state) throws VehicleStateException {
-        if ((landed) &&  (state == GOING_DOWN || state == HOVERING)){
+        if ((this.currentState == LANDED) &&  (state == GOING_DOWN || state == HOVERING)){
             throw new VehicleStateException();
         }else{ stateChange(state); }
     }
 
     private void stateChange(HelicopterState state){
         if(state == LANDED){
-            this.landed = true;
             this.currentState = state;
         }else{
-            this.landed = false;
             this.currentState = state;
         }
     }
