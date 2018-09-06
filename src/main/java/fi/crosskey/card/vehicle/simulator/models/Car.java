@@ -55,6 +55,6 @@ public class Car {
         if (state == this.state) {
             throw new VehicleStateException();
 
-        }else{ this.state = state;  }
+        } else { this.state = state; }
     }
 }

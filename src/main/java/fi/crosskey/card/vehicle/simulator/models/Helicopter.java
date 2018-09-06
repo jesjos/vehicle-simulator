@@ -15,49 +15,42 @@ public class Helicopter {
 
 
     public Helicopter(){
-        stateChange(LANDED);
+        this.currentState = LANDED;
     }
 
     public Helicopter(final String name, final HelicopterState state){
         this.name = name;
-        stateChange(state);
+        this.currentState = state;
     }
 
     public Helicopter(final String name){
         this.name = name;
-        stateChange(LANDED);
+        this.currentState = LANDED;
     }
 
     public Helicopter(final HelicopterState state){
-        stateChange(state);
+        this.currentState = state;
     }
 
 
     public void setCurrentState(final HelicopterState currentState) throws VehicleStateException {
-        stateValidator(currentState);
+        validateState(currentState);
 
     }
 
-    private void stateValidator(HelicopterState state) throws VehicleStateException {
+    private void validateState(HelicopterState state) throws VehicleStateException {
         if (state == this.currentState) {
             throw new VehicleStateException();
 
-        }else{ stateChangeValidator(state); }
+        } else { validateStateChange(state); }
     }
 
-    private void stateChangeValidator(HelicopterState state) throws VehicleStateException {
+    private void validateStateChange(HelicopterState state) throws VehicleStateException {
         if ((this.currentState == LANDED) &&  (state == GOING_DOWN || state == HOVERING)){
             throw new VehicleStateException();
-        }else{ stateChange(state); }
+        } else { this.currentState = state; }
     }
 
-    private void stateChange(HelicopterState state){
-        if(state == LANDED){
-            this.currentState = state;
-        }else{
-            this.currentState = state;
-        }
-    }
 
     public void setName(String name) {
         this.name = name;

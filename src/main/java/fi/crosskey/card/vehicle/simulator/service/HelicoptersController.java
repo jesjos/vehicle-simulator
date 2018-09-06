@@ -13,28 +13,28 @@ import java.util.Optional;
 @RequestMapping("/helicopters")
 public class HelicoptersController {
 
-    @Autowired
-    private HelicopterRepository vehiclesRepository;
 
+    private HelicopterRepository helicopterRepo;
+    @Autowired
     public HelicoptersController(final HelicopterRepository vehiclesRepository) {
-        this.vehiclesRepository = vehiclesRepository;
+        this.helicopterRepo = vehiclesRepository;
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public Iterable<Helicopter> findAll() {
-        return vehiclesRepository.findAll();
+        return helicopterRepo.findAll();
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public  Helicopter save(@RequestBody Helicopter entity) {
-        return vehiclesRepository.save(entity);
+        return helicopterRepo.save(entity);
     }
 
     /* URL path = localhost:8080/helicopters/findOne/value */
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Optional<Helicopter> findOne(@PathVariable Long id) {
-    return vehiclesRepository.findById(id);
+    return helicopterRepo.findById(id);
 }
 
 
