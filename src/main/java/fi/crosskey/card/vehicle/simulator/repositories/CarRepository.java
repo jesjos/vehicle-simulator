@@ -9,5 +9,4 @@ import fi.crosskey.card.vehicle.simulator.models.Car;
 
 public interface CarRepository extends CrudRepository<Car, Long> {
 
-         void save(String name);
 }
