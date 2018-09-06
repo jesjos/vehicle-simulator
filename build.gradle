@@ -22,7 +22,18 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.4.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.0.4.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.0.4.RELEASE'
     compile group: 'com.h2database', name: 'h2', version: '1.4.197'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180725.0427'
+
+    testCompile("org.springframework.boot:spring-boot-starter-test:2.0.4.RELEASE")
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
 }
