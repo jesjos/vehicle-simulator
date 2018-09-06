@@ -26,13 +26,13 @@ public class HelicoptersController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public  <S extends Helicopter> void save(S entity) {
-        vehiclesRepository.save(entity);
+    public  Helicopter save(@RequestBody Helicopter entity) {
+        return vehiclesRepository.save(entity);
     }
 
     /* URL path = localhost:8080/helicopters/findOne/value */
 
-    @RequestMapping(value = "/findOne/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Optional<Helicopter> findOne(@PathVariable Long id) {
     return vehiclesRepository.findById(id);
 }
