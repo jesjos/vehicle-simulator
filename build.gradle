@@ -9,6 +9,7 @@ plugins {
     id "org.springframework.boot" version "2.0.4.RELEASE"
 }
 
+
 group 'fi.crosskey.card'
 version '1.0-SNAPSHOT'
 
