@@ -26,6 +26,10 @@ public class Car {
         this.state = state;
     }
 
+    public Car(final String name) {
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }
@@ -46,7 +50,11 @@ public class Car {
         return state;
     }
 
-    public void setState(final CarState state) {
-        this.state = state;
+    public void setState(final CarState state) throws VehicleStateException {
+
+        if (state == this.state) {
+            throw new VehicleStateException();
+
+        } else { this.state = state; }
     }
 }

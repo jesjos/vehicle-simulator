@@ -14,13 +14,13 @@ public class CarTest {
     }
 
     @Test(expected = VehicleStateException.class)
-    public void stoppedVehicleCannotBeStopped() {
+    public void stoppedVehicleCannotBeStopped() throws VehicleStateException {
         vehicle = new Car();
         vehicle.setState(CarState.STOPPED);
     }
 
     @Test(expected = VehicleStateException.class)
-    public void startedVehicleCannotBeStarted() {
+    public void startedVehicleCannotBeStarted() throws VehicleStateException {
         vehicle = new Car();
         vehicle.setState(CarState.STARTED);
         vehicle.setState(CarState.STARTED);
