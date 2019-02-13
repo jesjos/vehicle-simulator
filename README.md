@@ -18,8 +18,10 @@ Welcome to the vehicle simulator!
     1. Enforce these conditions and make sure they are covered by unit tests
 1. Create a new controller for Helicopters
     1. It shall be possible to get all helicopters
-    1. It shall be possible to create a helicopter
+    1. It shall be possible to create a helicopter (it should be persisted in the database)
+    1. It shall be possible to update an existing helicopter
     1. It shall be possible to get a particular helicopter by id
+1. Take care to format your code correctly and consistently
 1. Commit your changes with well formed commit messages
 1. Bonus: test all requests using [MockMVC](https://spring.io/guides/gs/testing-web/)
 1. Bonus: create a shell script that starts the application and creates Car with name "foo". 
