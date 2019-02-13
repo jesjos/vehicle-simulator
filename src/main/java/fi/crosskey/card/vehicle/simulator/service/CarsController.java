@@ -14,14 +14,14 @@ import fi.crosskey.card.vehicle.simulator.repositories.CarRepository;
 @RequestMapping("/cars")
 public class CarsController {
 
-    private CarRepository vehiclesRepository;
+    private CarRepository carRepository;
 
-    public CarsController(final CarRepository vehiclesRepository) {
-        this.vehiclesRepository = vehiclesRepository;
+    public CarsController(final CarRepository carRepository) {
+        this.carRepository = carRepository;
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public Iterable<Car> findAll() {
-        return vehiclesRepository.findAll();
+        return carRepository.findAll();
     }
 }
